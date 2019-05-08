@@ -31,3 +31,32 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  margin: 20px auto;
+}
+
+.image-container {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .center {
+    flex-direction: column;
+  }
+}
