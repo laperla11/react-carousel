@@ -3,28 +3,37 @@ import "./App.css";
 import "./grid.css";
 import Image from "./Image.js";
 import Button from "./Button.js";
-import image1 from "./images/ebru1.jpg";
-import image2 from "./images/ebru2.jpg";
-import image3 from "./images/ebru3.jpg";
-import image4 from "./images/ebru4.jpg";
-import image5 from "./images/ebru5.jpg";
-import image6 from "./images/ebru6.jpg";
-import image7 from "./images/ebru7.jpg";
-import image8 from "./images/ebru8.jpg";
+
+const imageSrc1 =
+  "https://media.istockphoto.com/photos/ebru-art-traditional-turkish-ebru-technique-picture-id623964728?s=2048x2048";
+const imageSrc2 =
+  "https://media.istockphoto.com/photos/-picture-id1147296113?s=2048x2048";
+const imageSrc3 =
+  "https://media.istockphoto.com/photos/ebru-art-traditional-turkish-ebru-technique-picture-id623964554?s=2048x2048";
+const imageSrc4 =
+  "https://media.istockphoto.com/photos/marbling-picture-id157962221?s=2048x2048";
+const imageSrc5 =
+  "https://media.istockphoto.com/photos/ebru-picture-id162437424?s=2048x2048";
+const imageSrc6 =
+  "https://media.istockphoto.com/photos/ebru-art-traditional-turkish-ebru-technique-picture-id623964668?s=2048x2048";
+const imageSrc7 =
+  "https://media.istockphoto.com/photos/process-of-creating-drawing-in-ebru-technique-painting-on-the-water-picture-id995247330?s=2048x2048";
+const imageSrc8 =
+  "https://media.istockphoto.com/photos/ebru-art-traditional-turkish-ebru-technique-picture-id501911650?s=2048x2048";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       imageSources: [
-        image1,
-        image2,
-        image3,
-        image4,
-        image5,
-        image6,
-        image7,
-        image8
+        imageSrc1,
+        imageSrc2,
+        imageSrc3,
+        imageSrc4,
+        imageSrc5,
+        imageSrc6,
+        imageSrc7,
+        imageSrc8
       ],
       index: 0,
       speed: 2000
