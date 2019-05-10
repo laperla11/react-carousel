@@ -21,22 +21,23 @@ const imageSrc7 =
 const imageSrc8 =
   "https://media.istockphoto.com/photos/ebru-art-traditional-turkish-ebru-technique-picture-id501911650?s=2048x2048";
 
+const imageSources = [
+  imageSrc1,
+  imageSrc2,
+  imageSrc3,
+  imageSrc4,
+  imageSrc5,
+  imageSrc6,
+  imageSrc7,
+  imageSrc8
+];
+
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageSources: [
-        imageSrc1,
-        imageSrc2,
-        imageSrc3,
-        imageSrc4,
-        imageSrc5,
-        imageSrc6,
-        imageSrc7,
-        imageSrc8
-      ],
       index: 0,
-      speed: 2000
+      speed: 3000
     };
   }
   componentDidMount() {
@@ -71,7 +72,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { imageSources, index } = this.state;
+    const { index } = this.state;
     const btnContents = [
       {
         content: "Auto Back",
