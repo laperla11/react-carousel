@@ -12,7 +12,7 @@ const btnStyle = {
   fontSize: "20px",
   marginRight: "5px",
   color: "white",
-  border: "none",
+  border: "1px solid white",
   minWidth: "80px",
   padding: "9px 5px",
   borderRadius: "3px",

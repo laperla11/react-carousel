@@ -3,29 +3,46 @@ import "./App.css";
 import "./grid.css";
 import Image from "./Image.js";
 import Button from "./Button.js";
-import image1 from "./images/pawel-czerwinski-1538548-unsplash.jpg";
-import image2 from "./images/pawel-czerwinski-1574306-unsplash.jpg";
-import image3 from "./images/pawel-czerwinski-1574308-unsplash.jpg";
-import image4 from "./images/pawel-czerwinski-1574309-unsplash.jpg";
-import image5 from "./images/pawel-czerwinski-1574310-unsplash.jpg";
+import image1 from "./images/ebru1.jpg";
+import image2 from "./images/ebru2.jpg";
+import image3 from "./images/ebru3.jpg";
+import image4 from "./images/ebru4.jpg";
+import image5 from "./images/ebru5.jpg";
+import image6 from "./images/ebru6.jpg";
+import image7 from "./images/ebru7.jpg";
+import image8 from "./images/ebru8.jpg";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageSources: [image1, image2, image3, image4, image5],
-      index: 0
+      imageSources: [
+        image1,
+        image2,
+        image3,
+        image4,
+        image5,
+        image6,
+        image7,
+        image8
+      ],
+      index: 0,
+      speed: 2000
     };
   }
+  componentDidMount() {
+    this.getAutoForward();
+  }
 
-  getBackward = () => {
+  getBackwards = () => {
     this.setState(prevState => {
       return { index: prevState.index - 1 };
     });
   };
 
-  getAutoBackward = () => {
-    this.autoBackward = setInterval(this.getBackward, 2000);
+  getAutoBackwards = () => {
+    clearInterval(this.autoForward);
+    this.autoBackwards = setInterval(this.getBackwards, this.state.speed);
   };
 
   getForward = () => {
@@ -35,12 +52,13 @@ export default class App extends Component {
   };
 
   getAutoForward = () => {
-    this.autoForward = setInterval(this.getForward, 2000);
+    clearInterval(this.autoBackwards);
+    this.autoForward = setInterval(this.getForward, this.state.speed);
   };
 
   getStop = () => {
     clearInterval(this.autoForward);
-    clearInterval(this.autoBackward);
+    clearInterval(this.autoBackwards);
   };
 
   render() {
@@ -48,9 +66,12 @@ export default class App extends Component {
     const btnContents = [
       {
         content: "Auto Back",
-        onClick: this.getAutoBackward
+        onClick: this.getAutoBackwards
       },
-      { content: "Back", onClick: this.getBackward },
+      {
+        content: "Back",
+        onClick: this.getBackwards
+      },
       { content: "Stop", onClick: this.getStop },
       {
         content: "Forward",
@@ -72,14 +93,15 @@ export default class App extends Component {
             ]
           }
         />
-        {/* <p>{index}</p> */}
-        <p className="center">
+
+        <p style={paraStyle}>
           {(index >= 0
             ? index % imageSources.length
             : imageSources.length - 1 + (index % imageSources.length)) + 1}{" "}
           / {imageSources.length}
         </p>
-        <div className="center">
+
+        <div className="center" style={{ marginTop: "15px" }}>
           {btnContents.map(button => {
             return <Button content={button.content} onClick={button.onClick} />;
           })}{" "}
@@ -88,3 +110,11 @@ export default class App extends Component {
     );
   }
 }
+
+const paraStyle = {
+  color: "white",
+  backgroundColor: "black",
+  padding: "5px",
+  borderRadius: "5px",
+  display: "inline"
+};
