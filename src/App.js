@@ -84,23 +84,25 @@ export default class App extends Component {
     ];
     return (
       <div className="xs-col-12 sm-col-10 container">
-        <Image
-          imgSrc={
-            imageSources[
-              index >= 0
-                ? index % imageSources.length
-                : imageSources.length - 1 + (index % imageSources.length)
-            ]
-          }
-        />
+        <div style={{ position: "relative" }}>
+          <Image
+            imgSrc={
+              imageSources[
+                index >= 0
+                  ? index % imageSources.length
+                  : imageSources.length - 1 + (index % imageSources.length)
+              ]
+            }
+          />
 
-        <p style={paraStyle}>
-          {(index >= 0
-            ? index % imageSources.length
-            : imageSources.length - 1 + (index % imageSources.length)) + 1}{" "}
-          / {imageSources.length}
-        </p>
-
+          <p style={paraStyle}>
+            {(index >= 0
+              ? index % imageSources.length
+              : imageSources.length - 1 + (index % imageSources.length)) +
+              1}{" "}
+            / {imageSources.length}
+          </p>
+        </div>
         <div className="center" style={{ marginTop: "15px" }}>
           {btnContents.map(button => {
             return <Button content={button.content} onClick={button.onClick} />;
@@ -112,9 +114,13 @@ export default class App extends Component {
 }
 
 const paraStyle = {
+  position: "absolute",
+  bottom: "10px",
+  left: "10px",
   color: "white",
   backgroundColor: "black",
   padding: "5px",
   borderRadius: "5px",
-  display: "inline"
+  display: "inline",
+  margin: "0px"
 };
