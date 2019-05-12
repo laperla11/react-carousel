@@ -54,7 +54,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       index: 0,
-      speed: 2000
+      speed: 4000
     };
   }
   componentDidMount() {
@@ -136,6 +136,8 @@ export default class App extends Component {
     );
   }
 }
+
+// git push carousel - 1 master
 
 const paraStyle = {
   position: "absolute",
