@@ -41,7 +41,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       index: 0,
-      speed: 2500,
+      speed: 4000,
     };
     this.autoForwardPlay = null;
     this.autoBackwardPlay = null;
