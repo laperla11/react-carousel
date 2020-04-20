@@ -47,7 +47,7 @@ export default class App extends Component {
     this.autoBackwardPlay = null;
   }
   componentDidMount() {
-    this.getAutoForward();
+    // this.getAutoForward();
   }
 
   componentWillUnmount() {
