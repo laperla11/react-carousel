@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-const Image = props => {
+const Image = ({ src, id }) => {
   return (
-    <div>
-      <h1 className="center">Ebru, Turkish art of paper marbling</h1>
-      <div className="image-container">
-        <img src={props.imgSrc} />
+    <div key={id}>
+      <h1 className='center'>Ebru, Turkish art of paper marbling</h1>
+      <div className='image-container'>
+        {<img src={src} alt='Ebru photo' />}
       </div>
     </div>
   );
