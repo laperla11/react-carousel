@@ -55,26 +55,38 @@ export default class App extends Component {
     clearInterval(this.autoBackwardPlay);
   }
 
-  getBackwards = () => {
-    this.setState((prevState) => {
-      return { index: prevState.index - 1 };
-    });
-  };
-
-  getAutoBackwards = () => {
-    clearInterval(this.autoForwardPlay);
-    this.autoBackwardPlay = setInterval(this.getBackwards, this.state.speed);
-  };
-
-  getForward = () => {
+  increaseIndex = () => {
     this.setState((prevState) => {
       return { index: prevState.index + 1 };
     });
   };
 
+  decreaseIndex = () => {
+    this.setState((prevState) => {
+      return { index: prevState.index - 1 };
+    });
+  };
+
+  getBackwards = () => {
+    clearInterval(this.autoForwardPlay);
+    clearInterval(this.autoBackwardPlay);
+    this.decreaseIndex();
+  };
+
+  getAutoBackwards = () => {
+    clearInterval(this.autoForwardPlay);
+    this.autoBackwardPlay = setInterval(this.decreaseIndex, this.state.speed);
+  };
+
+  getForward = () => {
+    clearInterval(this.autoForwardPlay);
+    clearInterval(this.autoBackwardPlay);
+    this.increaseIndex();
+  };
+
   getAutoForward = () => {
     clearInterval(this.autoBackwardPlay);
-    this.autoForwardPlay = setInterval(this.getForward, this.state.speed);
+    this.autoForwardPlay = setInterval(this.increaseIndex, this.state.speed);
   };
 
   getStop = () => {
@@ -137,4 +149,5 @@ const paraStyle = {
   display: 'inline',
   margin: '0px',
 };
+
 // git push carousel - 1 master
