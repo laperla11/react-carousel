@@ -123,7 +123,10 @@ export default class App extends Component {
     return (
       <div className='xs-col-12 sm-col-10 container'>
         <div style={{ position: 'relative' }}>
-          <Image id={newIndex} src={imageSources[newIndex]} />
+          {imageSources.map((src, i) => (
+            <Image i={i} id={newIndex} src={src} />
+          ))}
+
           <p style={paraStyle}>
             {newIndex + 1} / {imageSources.length}
           </p>
